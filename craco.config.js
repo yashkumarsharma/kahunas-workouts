@@ -3,6 +3,7 @@ const ModuleFederationPlugin = require('webpack/lib/container/ModuleFederationPl
 module.exports = {
   devServer: {
     port: 3001,
+    hot: true,
     historyApiFallback: {
       index: '/workouts/index.html',
     },
