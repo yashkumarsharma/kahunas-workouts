@@ -1,29 +1,25 @@
-const { ModuleFederationPlugin } = require('webpack').container
+const ModuleFederationPlugin = require('webpack/lib/container/ModuleFederationPlugin')
 
 module.exports = {
+  devServer: {
+    port: 3001,
+    historyApiFallback: {
+      index: '/workouts/index.html',
+    },
+  },
   webpack: {
     configure: (webpackConfig) => {
+      webpackConfig.output.publicPath = 'auto'
       webpackConfig.plugins.push(
         new ModuleFederationPlugin({
-          name: 'container',
+          name: 'workouts',
           filename: 'remoteEntry.js',
           exposes: {
-            './kahunas': './src/index',
+            './App': './src/App',
           },
-          remotes: {
-            remoteApp: `remoteApp@${'http://localhost:3000'}`,
-          },
-          shared: {
-            react: {
-              singleton: true,
-            },
-            'react-dom': {
-              singleton: true,
-            },
-          },
+          shared: { react: { singleton: true }, 'react-dom': { singleton: true } },
         })
       )
-
       return webpackConfig
     },
   },
