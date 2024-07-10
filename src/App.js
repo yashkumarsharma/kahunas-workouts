@@ -1,17 +1,39 @@
 import React from 'react'
-import { BrowserRouter as Router, Routes, Route, Navigate, Link } from 'react-router-dom'
+import { Provider } from 'react-redux'
+import { useStore } from 'container/StoreContext'
+import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom'
 
-const Home = () => <h2>Micro-Frontend 1 Home<Link to='/page'> Page </Link></h2>
-const Page = () => <h2>Micro-Frontend 1 Page</h2>
+import NutritionPage from './containers/NutritionPage'
+import LandingPage from './containers/LandingPage'
 
-const App = () => (
-  <Router basename={'/workouts'}>
-    <Routes>
-      <Route path='/' element={<Home />} />
-      <Route path='/page' element={<Page />} />
-      <Route path='*' element={<Navigate to='/' />} />
-    </Routes>
-  </Router>
-)
+// Todo: Leaving some commented tested code for redux integration, remove this.
+// const rootHelloReducer = (state = {
+//   isLoading: true,
+// }, action) => state
+
+const App = () => {
+  // const { store, replaceReducertest } = useStore()
+  const { store } = useStore()
+
+  // useEffect(() => {
+  //   if(!replaceReducertest) return
+  //   replaceReducertest({
+  //     rootHelloReducer: rootHelloReducer,
+  //     // Add other reducers here if needed
+  //   })
+  // }, [replaceReducertest])
+
+  return (
+    <Provider store={store}>
+      <Router basename='/workouts'>
+        <Routes>
+          <Route path='/' element={<LandingPage />} />
+          <Route path='/nutrition' element={<NutritionPage />} />
+          <Route path='*' element={<Navigate to='/' />} />
+        </Routes>
+      </Router>
+    </Provider>
+  )
+}
 
 export default App

@@ -17,7 +17,15 @@ module.exports = {
           exposes: {
             './App': './src/App',
           },
-          shared: { react: { singleton: true }, 'react-dom': { singleton: true } },
+          remotes: {
+            container: 'container@http://localhost:3000/remoteEntry.js',
+          },
+          shared: {
+            react: { singleton: true },
+            'react-dom': { singleton: true },
+            '@reduxjs/toolkit': { singleton: true },
+            'react-redux': { singleton: true },
+          },
         })
       )
       return webpackConfig
