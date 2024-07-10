@@ -25,6 +25,8 @@ module.exports = {
             'react-dom': { singleton: true },
             '@reduxjs/toolkit': { singleton: true },
             'react-redux': { singleton: true },
+            'react-i18next': { singleton: true },
+            'i18next': { singleton: true },
           },
         })
       )
