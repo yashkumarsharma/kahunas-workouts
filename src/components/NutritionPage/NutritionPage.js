@@ -1,7 +1,11 @@
 import React from 'react'
+import { useTranslation } from 'react-i18next'
+
 import './styles.css'
 
 const NutritionPage = () => {
+  const { t } = useTranslation()
+
   const foods = [
     {
       name: 'Apple',
@@ -28,7 +32,7 @@ const NutritionPage = () => {
   return (
     <div className='nutrition-page'>
       <div className='nutrition-content'>
-        <p className='title'>Nutrition Information</p>
+        <p className='title'>{t('Nutrition Information')}</p>
         <ul>
           {foods.map((food, index) => (
             <li key={index}>

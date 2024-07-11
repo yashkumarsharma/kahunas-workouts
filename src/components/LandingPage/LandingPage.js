@@ -5,26 +5,25 @@ import { useTranslation } from 'react-i18next'
 import './styles.css'
 
 const LandingPage = () => {
-  const title = 'Workouts Landing Page'
   const { t } = useTranslation()
 
   return (
     <div className='workouts-landing-page'>
       <div className='workouts-landing-content'>
-        <p className='title'>{title}</p>
-        <p>You can add following workouts for your clients</p>
+        <p className='title'>{t('Workouts')}</p>
+        <p>{t('landing-heading')}</p>
 
         <ul>
-          <li>Squats</li>
-          <li>Push-ups</li>
-          <li>Deadlifts</li>
-          <li>Lunges</li>
-          <li>Plank</li>
+          <li>{t('Squats')}</li>
+          <li>{t('Push-ups')}</li>
+          <li>{t('Deadlifts')}</li>
+          <li>{t('Lunges')}</li>
+          <li>{t('Plank')}</li>
         </ul>
       </div>
 
       <div className='workouts-landing-footer'>
-        <Link to='/nutrition'>Checkout Nutrition Page</Link>
+        <Link to='/nutrition'>{t('Checkout Nutrition Page')}</Link>
       </div>
     </div>
   )
