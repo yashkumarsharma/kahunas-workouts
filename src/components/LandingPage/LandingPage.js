@@ -9,11 +9,23 @@ const LandingPage = () => {
   const { t } = useTranslation()
 
   return (
-    <div className='landing-page'>
-      {title}
-      <p>{t('welcome')}</p>
+    <div className='workouts-landing-page'>
+      <div className='workouts-landing-content'>
+        <p className='title'>{title}</p>
+        <p>You can add following workouts for your clients</p>
 
-      <Link to='/nutrition'>Checkout Nutrition Page</Link>
+        <ul>
+          <li>Squats</li>
+          <li>Push-ups</li>
+          <li>Deadlifts</li>
+          <li>Lunges</li>
+          <li>Plank</li>
+        </ul>
+      </div>
+
+      <div className='workouts-landing-footer'>
+        <Link to='/nutrition'>Checkout Nutrition Page</Link>
+      </div>
     </div>
   )
 }
