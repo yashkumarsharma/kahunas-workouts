@@ -3,7 +3,13 @@ import { useTranslation } from 'react-i18next'
 
 import './styles.css'
 
-const NutritionPage = () => {
+const NutritionPage = (props) => {
+  const {
+    nutritionCount,
+    increaseCount,
+    decreaseCount,
+  } = props
+
   const { t } = useTranslation()
 
   const foods = [
@@ -31,6 +37,13 @@ const NutritionPage = () => {
 
   return (
     <div className='nutrition-page'>
+      <div className='nutrition-content'>
+        <p className='title'>{t('Nutrition Count')}</p>
+        {/* Added this section to test State Sync */}
+        <button onClick={increaseCount}>{t('Increase')}</button>
+        <span className='count-display'>{nutritionCount}</span>
+        <button onClick={decreaseCount}>{t('Decrease')}</button>
+      </div>
       <div className='nutrition-content'>
         <p className='title'>{t('Nutrition Information')}</p>
         <ul>

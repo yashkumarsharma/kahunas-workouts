@@ -41,3 +41,25 @@
   font-size: 1em;
   color: #555;
 }
+
+.nutrition-content button {
+  background-color: #007bff;
+  color: white;
+  border: none;
+  padding: 10px 15px;
+  margin: 5px;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 1em;
+  transition: background-color 0.3s;
+}
+
+.nutrition-content button:hover {
+  background-color: #0056b3;
+}
+
+.nutrition-content .count-display {
+  font-size: 1.5em;
+  color: #333;
+  margin: 0 10px;
+}
